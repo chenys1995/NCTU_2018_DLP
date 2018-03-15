@@ -29,14 +29,6 @@ def affine_backward(dout,cache):
     dx = dout.dot(w.T).reshape(x.shape)
     db = np.sum(dout, axis=0)
     return dw, dx, db
-def smooth_l1_loss(y_pred, y):
-    z = np.zeros(y.shape)
-    for i in range(4):
-        if np.abs(y_pred[i] - y[i]) < 1:
-            z[i] = 0.5 * np.power(y_pred[i] - y[i], 2)
-        else:
-            z[i] = np.abs(y_pred[i] - y[i]) - 0.5
-    return z
 x = np.array([[0,0],[0,1],[1,0],[1,1]])
 w1 = 0.05 * np.random.randn(2,3)
 b1 = np.random.randn(3)
@@ -53,9 +45,8 @@ for i in range(args.epochs):
     #siga2out, sig2cache = sigmoid(a2out)
     #loss
     print('output: {}'.format(a2out))
-    #loss = np.power(y - a2out,2).reshape(4,1).mean(axis=1)
+    loss = np.power(y - a2out,2).reshape(4,1).mean(axis=1)
     #print(loss)
-    loss = smooth_l1_loss(a2out, y)
     #loss = (siga2out - y)*(siga2out - y)
     print(loss.mean())
     if loss.mean() > 100 or loss.mean() < 0.001:
