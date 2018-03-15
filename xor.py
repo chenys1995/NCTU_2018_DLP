@@ -1,4 +1,3 @@
-#!/home/dl2018/anaconda3/bin/python3
 import numpy as np
 import argparse
 parser = argparse.ArgumentParser(description='Numpy XOR MLP Example')
