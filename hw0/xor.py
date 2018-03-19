@@ -33,10 +33,10 @@ def affine_backward(dout,cache):
     db = np.sum(dout, axis=0)
     return dw, dx, db
 x = np.array([[0,0],[0,1],[1,0],[1,1]])
-w1 = 0.1 * np.random.randn(2,2)
-b1 = np.zeros(2)
+w1 = 0.1 * np.random.randn(2,8)
+b1 = np.zeros(8)
 #b1 = np.array([-10,30])
-w2 = 0.1 * np.random.randn(2,1)
+w2 = 0.1 * np.random.randn(8,1)
 b2 = np.zeros(1)
 #b2 = np.array([-30])
 y = np.array([0,1,1,0])
