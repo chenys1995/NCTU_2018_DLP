@@ -1,3 +1,6 @@
 [submodule "pytorch-cifar"]
 	path = pytorch-cifar
 	url = https://github.com/chenys1995/pytorch-cifar
+[submodule "deep-image-prior"]
+	path = deep-image-prior
+	url = https://github.com/chenys1995/deep-image-prior.git
